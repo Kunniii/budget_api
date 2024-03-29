@@ -3,10 +3,8 @@
   "module": "index.js",
   "type": "module",
   "scripts": {
-    "build": "bun build src/index.js --target=bun --minify --outfile=dist/index.js",
-    "start": ".bun/bun dist/index.js",
-    "dev": "bun --watch src/index.js",
-    "dev:start": "bun dist/index.js"
+    "start": ".bun/bun src/index.js",
+    "dev": "bun --watch src/index.js"
   },
   "devDependencies": {
     "@types/bun": "latest"
