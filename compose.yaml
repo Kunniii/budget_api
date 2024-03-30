@@ -1,0 +1,33 @@
+services:
+  postgres:
+    image: postgres:16
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 1G
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: budgets
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  pg-admin:
+    image: dpage/pgadmin4:8
+    depends_on:
+      - postgres
+    environment:
+      PGADMIN_LISTEN_PORT: 4321
+      PGADMIN_DEFAULT_EMAIL: email@email.email
+      PGADMIN_DEFAULT_PASSWORD: 9583d2c65109f0e5c6b2a05b7b3e29e747f
+      PGADMIN_DISABLE_POSTFIX: true
+    ports:
+      - "4321:4321"
+    volumes:
+      - ./pg-servers.json:/pgadmin4/servers.json
+
+volumes:
+  postgres_data:
