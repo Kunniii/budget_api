@@ -28,8 +28,17 @@ CREATE TABLE "User" (
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "email" TEXT NOT NULL,
     "hash" VARCHAR(96) NOT NULL,
+    "isValidated" BOOLEAN NOT NULL DEFAULT false,
+    "nonce" VARCHAR(36) NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "ValidateEmail" (
+    "id" VARCHAR(36) NOT NULL,
+    "email" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 -- CreateIndex
@@ -37,6 +46,15 @@ CREATE UNIQUE INDEX "Expense_ownerId_key" ON "Expense"("ownerId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_nonce_key" ON "User"("nonce");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "ValidateEmail_id_key" ON "ValidateEmail"("id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "ValidateEmail_email_key" ON "ValidateEmail"("email");
 
 -- AddForeignKey
 ALTER TABLE "Expense" ADD CONSTRAINT "Expense_tagId_fkey" FOREIGN KEY ("tagId") REFERENCES "Tag"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
