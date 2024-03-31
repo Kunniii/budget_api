@@ -1,15 +1,13 @@
-@host=http://localhost:3000
+@host=http://localhost:3000/users
 
 ###
-GET {{host}}/
+POST {{host}}/
 
 ###
-POST {{host}}/put
-Content-Type: application/json
+POST {{host}}/login
 
-{
-    "id": 1,
-    "name": "John",
-    "age": 30,
-    "email": "<EMAIL>"
-}
+###
+POST {{host}}/register
+
+###
+POST {{host}}/verify
