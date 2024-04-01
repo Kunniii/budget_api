@@ -3,11 +3,8 @@
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
-    "install": "bun install",
     "start": ".bun/bun src/index.ts",
-    "dev": "bun --watch src/index.ts",
-    "build": "bun build --minify --target=bun --outfile=dist/index.js src/index.ts",
-    "build:node": "bun build --minify --target=node --outfile=dist/index.js src/index.ts"
+    "dev": "bun --watch src/index.ts"
   },
   "prisma": {
     "schema": "./src/prisma/schema.prisma"
