@@ -1,5 +1,0 @@
-@host=http://localhost:3000/validate-email
-
-###
-
-GET {{host}}/?code=123123123&email=email@example.com
