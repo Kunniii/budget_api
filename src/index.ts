@@ -21,10 +21,9 @@ function main() {
     });
   });
 
-  app.use("/users", usersRoute);
-  app.use("/spend", expensesRoute);
-  app.use("/expense", expensesRoute);
-  app.use("/validate-email", validateEmailRoute);
+  app.use(["/users"], usersRoute);
+  app.use(["/spend", "/expense"], expensesRoute);
+  app.use(["/validate-email"], validateEmailRoute);
 
   app.listen(port, () => {
     console.log(`Server running on port ${port}!`);
