@@ -3,6 +3,7 @@
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
+    "prebuild": "bun prisma migrate deploy && bun prisma db push",
     "start": ".bun/bun src/index.ts",
     "dev": "bun --watch src/index.ts"
   },
