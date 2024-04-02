@@ -4,8 +4,8 @@
   "type": "module",
   "scripts": {
     "prebuild": "bun install",
-    "build": "bun build --minify --target=bun --outfile=dist/index.js src/index.ts",
-    "start": ".bun/bun ./dist/index.js",
+    "build": "bun build --minify --target=bun --outfile=src/index.js src/index.ts",
+    "start": "bun ./src/index.js || .bun/bun ./src/index.js",
     "dev": "bun --watch ./src/index.ts"
   },
   "prisma": {
