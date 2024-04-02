@@ -3,8 +3,9 @@
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
-    "prebuild": "bun install",
-    "start": ".bun/bun prisma db push && .bun/bun ./src/index.ts",
+    "prebuild": "bun install && bun prisma db push",
+    "build": "bun build --minify --target=bun --outfile=dist/index.js src/index.ts",
+    "start": ".bun/bun /dist/index.js",
     "dev": "bun --watch ./src/index.ts"
   },
   "prisma": {
