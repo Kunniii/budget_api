@@ -3,7 +3,7 @@
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
-    "build": "bun build --compile --minify --outfile=dist/server ./src/index.ts",
+    "build": "bun build --compile --minify --sourcemap --outfile=dist/server ./src/index.ts && cp package.json ./dist/",
     "build:bun": "bun build --minify --target=bun --outfile=dist/index.js ./src/index.ts",
     "build:cli": "bun build --compile --outfile=dist/budget_api ./src/index.ts",
     "start": "./server",
