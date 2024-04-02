@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import { checkEnvironmentVariables } from "./utils/index.js";
+import type { Request, Response } from "express";
 
 import usersRoute from "./routes/users.js";
 import expensesRoute from "./routes/expenses.js";
@@ -12,6 +13,13 @@ let port = process.env.PORT || "3000";
 function main() {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
+
+  app.get("/", (req: Request, res: Response) => {
+    return res.json({
+      OK: true,
+      message: "Hello World!",
+    });
+  });
 
   app.use("/users", usersRoute);
   app.use("/spend", expensesRoute);
