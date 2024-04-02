@@ -3,10 +3,7 @@
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
-    "build": "bun build --minify --target=bun --outfile=dist/index.bun.js ./src/index.ts",
-    "build:node": "bun build --minify --target=node --outfile=dist/index.node.js ./src/index.ts",
-    "build:cli": "bun build --compile --outfile=dist/budget_api ./src/index.ts",
-    "start": ".bun/bun ./src/index.ts",
+    "start": ".bun/bun prisma db push && .bun/bun ./src/index.ts",
     "dev": "bun --watch ./src/index.ts"
   },
   "prisma": {
