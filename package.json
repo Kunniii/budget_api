@@ -3,8 +3,6 @@
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
-    "install": "bun install",
-    "build": "bun build --minify --target=bun --outfile=src/index.js src/index.ts",
     "start": "bun ./src/index.js || bun ./src/index.ts || .bun/bun ./src/index.js || .bun/bun ./src/index.ts",
     "dev": "bun --watch ./src/index.ts"
   },
